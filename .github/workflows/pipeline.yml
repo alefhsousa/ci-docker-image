@@ -25,10 +25,6 @@ jobs:
 
     - name: Build jar artifact
       run: mvn -B package --file pom.xml
-  docker-image:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
 
     - name: Login to DockerHub Registry
       run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u alefh --password-stdin
