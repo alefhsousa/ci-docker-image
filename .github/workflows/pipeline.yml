@@ -35,7 +35,7 @@ jobs:
 
     - name: Build the version of app
       id: vars
-      run: echo ${GITHUB_SHA:10}
+      run: echo ::set-output name=tag::$(echo ${GITHUB_SHA:5})
 
     - name: Build the tagged Docker image
       run: docker build -t alefh/ci-docker-image:${{steps.vars.outputs.tag}} .
